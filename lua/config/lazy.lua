@@ -28,6 +28,21 @@ require("lazy").setup({
     -- { import = "lazyvim.plugins.extras.coding.copilot" }, --for copilot integration
     { import = "lazyvim.plugins.extras.util.mini-hipatterns" },
 
+    { -- For moving LSP hints to the end of the line
+      "chrisgrieser/nvim-lsp-endhints",
+      event = "LspAttach",
+      opts = {}, -- Required, even if empty
+    },
+
+    -- some shortcuts for commenting things in and out
+    {
+      "numToStr/Comment.nvim",
+      event = "VeryLazy", -- or another trigger
+      config = function()
+        require("Comment").setup()
+      end,
+    },
+
     -- add JavaScript support
 
     { import = "plugins" },

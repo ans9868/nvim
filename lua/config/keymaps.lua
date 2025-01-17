@@ -83,3 +83,38 @@ keymap.set("n", "<C-S-j>", "<C-w>-")
 keymap.set("n", "<C-j>", function()
   vim.diagnostic.goto_next()
 end, opts)
+
+-- for moddifying inlay-hinds / endhints from nvim-lsp-endhints endhints.lua
+--
+--
+
+-- Variables
+local truncate_at_chars = 20
+
+-- Function to toggle truncation
+function ToggleTruncation()
+  if truncate_at_chars then
+    truncate_at_chars = nil -- Disable truncation
+  else
+    truncate_at_chars = 20 -- Enable truncation with 20 chars
+  end
+
+  require("lsp-endhints").setup({
+    label = {
+      truncateAtChars = truncate_at_chars,
+    },
+  })
+  vim.lsp.buf.inlay_hint(0, true)
+  print("Truncation: " .. (truncate_at_chars and "Enabled (20 chars)" or "Disabled"))
+end
+
+-- Key mappings for truncation
+vim.api.nvim_set_keymap("n", "<leader>tt", ":lua ToggleTruncation()<CR>", { noremap = true, silent = true })
+
+-- Key mappings for inlay hints
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>ht",
+  ":lua require('lsp-endhints').toggle()<CR>",
+  { noremap = true, silent = true }
+)
