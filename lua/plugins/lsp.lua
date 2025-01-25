@@ -47,6 +47,7 @@ return {
           settings = {
             typescript = {
               inlayHints = {
+                semicolons = "remove",
                 includeInlayParameterNameHints = "literal",
                 includeInlayParameterNameHintsWhenArgumentMatchesName = false,
                 includeInlayFunctionParameterTypeHints = true,
@@ -58,6 +59,7 @@ return {
             },
             javascript = {
               inlayHints = {
+                semicolons = "remove",
                 includeInlayParameterNameHints = "all",
                 includeInlayParameterNameHintsWhenArgumentMatchesName = false,
                 includeInlayFunctionParameterTypeHints = true,

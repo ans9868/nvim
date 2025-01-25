@@ -23,8 +23,15 @@ keymap.set("n", "<C-a>", "gg0<S-v>G")
 
 keymap.set("n", "dummy", "$")
 
--- Tabs
+-- Switch through buffers
 
+-- go to the previous buffer
+keymap.set("n", "[b", ":bprev<Return>") -- Previous buffer
+
+-- go to the next buffer
+keymap.set("n", "]b", ":bnext<Return>") -- Next buffer
+
+-- Tabs
 keymap.set("n", "te", ":tabedit") -- open and edit new tab tab
 -- keymap.set("n", "tc", ":tabclose<Return> | bdelete %<CR>", opts) -- close current tab
 keymap.set("n", "<tab>", ":tabnext<Return>", opts) -- go to next tab
