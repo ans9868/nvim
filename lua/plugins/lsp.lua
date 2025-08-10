@@ -10,12 +10,22 @@ return {
         "tailwindcss-language-server",
         "typescript-language-server",
         "css-lsp",
+        "eslint-lsp",
+        "prettier",
+        "emmet-ls",
+        "dockerfile-language-server",
+        "yaml-language-server",
 
         -- Python tools
         "pyright", -- Python language server
         "black", -- Python formatter
         "flake8", -- Python linter
         "debugpy", -- Debugger for Python
+        "ruff", -- Fast Python linter and formatter
+        "mypy", -- Static type checker
+        "autopep8", -- Python code formatter
+        "isort", -- Import sorting
+        "pydocstyle", -- Docstring style checker
 
         -- C/C++ tools
         "clangd", -- C/C++ language server
@@ -56,6 +66,15 @@ return {
                 includeInlayFunctionLikeReturnTypeHints = true,
                 includeInlayEnumMemberValueHints = true,
               },
+              suggest = {
+                includeCompletionsForModuleExports = true,
+                includeCompletionsWithSnippetText = true,
+              },
+              format = {
+                indentSize = 2,
+                tabSize = 2,
+                convertTabsToSpaces = true,
+              },
             },
             javascript = {
               inlayHints = {
@@ -68,10 +87,94 @@ return {
                 includeInlayFunctionLikeReturnTypeHints = true,
                 includeInlayEnumMemberValueHints = true,
               },
+              suggest = {
+                includeCompletionsForModuleExports = true,
+                includeCompletionsWithSnippetText = true,
+              },
+              format = {
+                indentSize = 2,
+                tabSize = 2,
+                convertTabsToSpaces = true,
+              },
+            },
+            completions = {
+              includeCompletionsForModuleExports = true,
+              includeCompletionsWithSnippetText = true,
             },
           },
         },
+        eslint = {
+          settings = {
+            workingDirectory = { mode = "auto" },
+          },
+        },
+        emmet_ls = {
+          filetypes = {
+            "html",
+            "css",
+            "scss",
+            "sass",
+            "less",
+            "javascript",
+            "javascriptreact",
+            "typescript",
+            "typescriptreact",
+          },
+        },
         html = {},
+        dockerls = {},
+        yamlls = {
+          settings = {
+            yaml = {
+              schemas = {
+                ["https://json.schemastore.org/docker-compose.json"] = "docker-compose*.yml",
+                ["https://json.schemastore.org/docker-compose.json"] = "docker-compose*.yaml",
+                ["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] = "docker-compose*.yml",
+                ["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] = "docker-compose*.yaml",
+                ["https://json.schemastore.org/kubernetes.json"] = "k8s*.yml",
+                ["https://json.schemastore.org/kubernetes.json"] = "k8s*.yaml",
+                ["https://json.schemastore.org/kubernetes.json"] = "*.k8s.yml",
+                ["https://json.schemastore.org/kubernetes.json"] = "*.k8s.yaml",
+              },
+              format = {
+                enable = true,
+                singleQuote = false,
+                bracketSpacing = true,
+                proseWrap = "preserve",
+              },
+              validate = true,
+              hover = true,
+              completion = true,
+            },
+          },
+        },
+        pyright = {
+          settings = {
+            python = {
+              analysis = {
+                typeCheckingMode = "basic",
+                autoSearchPaths = true,
+                useLibraryCodeForTypes = true,
+                diagnosticMode = "workspace",
+                inlayHints = {
+                  functionReturnTypes = true,
+                  variableTypes = true,
+                  parameterTypes = true,
+                },
+              },
+              linting = {
+                enabled = true,
+                flake8Enabled = true,
+                mypyEnabled = true,
+                ruffEnabled = true,
+              },
+              formatting = {
+                provider = "black",
+              },
+            },
+          },
+        },
+
         lua_ls = {
           -- enabled = false,
           single_file_support = true,

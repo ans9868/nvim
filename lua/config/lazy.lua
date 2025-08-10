@@ -17,14 +17,16 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
   spec = {
     -- add LazyVim and import its plugins
-    { "LazyVim/LazyVim", import = "lazyvim.plugins", opts = { colorscheme = "tokyonight" } },
+    { "LazyVim/LazyVim", import = "lazyvim.plugins", opts = { colorscheme = "monokai-pro" } },
     -- import/override with your plugins
     { import = "lazyvim.plugins.extras.linting.eslint" }, -- on macos may be permission problem and need to give estra permission to npm for this to be installed by Mason directly
     { import = "lazyvim.plugins.extras.formatting.prettier" },
     { import = "lazyvim.plugins.extras.lang.typescript" },
-    -- { import = "lazyvim.plugins.extras.lang.javascript" }, --this is handled by typescript
+    -- { import = "lazyvim.plugins.extras.lang.javascript" }, -- Commented out due to missing module
     { import = "lazyvim.plugins.extras.lang.json" },
     { import = "lazyvim.plugins.extras.lang.tailwind" },
+    { import = "lazyvim.plugins.extras.lang.yaml" },
+    { import = "lazyvim.plugins.extras.lang.python" },
     -- { import = "lazyvim.plugins.extras.coding.copilot" }, --for copilot integration
     { import = "lazyvim.plugins.extras.util.mini-hipatterns" },
 
@@ -46,6 +48,9 @@ require("lazy").setup({
     -- add JavaScript support
 
     { import = "plugins" },
+
+    -- Other
+    { "nvim-telescope/telescope.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
   },
   defaults = {
     -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.
@@ -57,7 +62,7 @@ require("lazy").setup({
     -- version = "*", -- try installing the latest stable version for plugins that support semver
     timeout = 60000, -- set timeout for fetch to 1 minute
   },
-  install = { colorscheme = { "tokyonight", "sonokai", "habamax" } },
+  install = { colorscheme = { "monokai-pro", "tokyonight", "sonokai", "habamax" } },
   -- install = { colorscheme = { "catpuccin", "sonokai", "tokyonight", "habamax" } },
   checker = {
     enabled = true, -- check for plugin updates periodically

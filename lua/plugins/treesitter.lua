@@ -7,6 +7,7 @@ return {
         --fullstack development
         "javascript",
         "typescript",
+        "tsx",
         "css",
         "gitignore",
         "graphql",
