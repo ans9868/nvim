@@ -114,3 +114,6 @@ vim.api.nvim_set_keymap(
   ":lua require('lsp-endhints').toggle()<CR>",
   { noremap = true, silent = true }
 )
+
+-- remove LazyVim's zen mode toggle
+pcall(vim.keymap.del, "n", "<leader>uz")
