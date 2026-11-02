@@ -4,8 +4,6 @@ return {
     "williamboman/mason.nvim",
     opts = function(_, opts)
       vim.list_extend(opts.ensure_installed, {
-        "luacheck",
-        "shellcheck",
         "shfmt",
         "tailwindcss-language-server",
         "typescript-language-server",
@@ -19,18 +17,13 @@ return {
         -- Python tools
         "pyright", -- Python language server
         "black", -- Python formatter
-        "flake8", -- Python linter
         "debugpy", -- Debugger for Python
         "ruff", -- Fast Python linter and formatter
-        "mypy", -- Static type checker
-        "autopep8", -- Python code formatter
         "isort", -- Import sorting
-        "pydocstyle", -- Docstring style checker
 
         -- C/C++ tools
         "clangd", -- C/C++ language server
         "clang-format", -- C/C++ formatter
-        "cpplint", -- C++ linter
         "codelldb", -- Debugger for C/C++
       })
     end,
@@ -49,26 +42,20 @@ return {
             return require("lspconfig.util").root_pattern(".git")(...)
           end,
         },
-        tsserver = {
-          root_dir = function(...)
-            return require("lspconfig.util").root_pattern(".git")(...)
-          end,
+        vtsls = {
           single_file_support = false,
           settings = {
             typescript = {
               inlayHints = {
-                semicolons = "remove",
-                includeInlayParameterNameHints = "literal",
-                includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-                includeInlayFunctionParameterTypeHints = true,
-                includeInlayVariableTypeHints = false,
-                includeInlayPropertyDeclarationTypeHints = true,
-                includeInlayFunctionLikeReturnTypeHints = true,
-                includeInlayEnumMemberValueHints = true,
+                parameterNames = { enabled = "literals", suppressWhenArgumentMatchesName = true },
+                parameterTypes = { enabled = true },
+                variableTypes = { enabled = false },
+                propertyDeclarationTypes = { enabled = true },
+                functionLikeReturnTypes = { enabled = true },
+                enumMemberValues = { enabled = true },
               },
               suggest = {
-                includeCompletionsForModuleExports = true,
-                includeCompletionsWithSnippetText = true,
+                autoImports = true,
               },
               format = {
                 indentSize = 2,
@@ -78,28 +65,21 @@ return {
             },
             javascript = {
               inlayHints = {
-                semicolons = "remove",
-                includeInlayParameterNameHints = "all",
-                includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-                includeInlayFunctionParameterTypeHints = true,
-                includeInlayVariableTypeHints = true,
-                includeInlayPropertyDeclarationTypeHints = true,
-                includeInlayFunctionLikeReturnTypeHints = true,
-                includeInlayEnumMemberValueHints = true,
+                parameterNames = { enabled = "all", suppressWhenArgumentMatchesName = true },
+                parameterTypes = { enabled = true },
+                variableTypes = { enabled = true },
+                propertyDeclarationTypes = { enabled = true },
+                functionLikeReturnTypes = { enabled = true },
+                enumMemberValues = { enabled = true },
               },
               suggest = {
-                includeCompletionsForModuleExports = true,
-                includeCompletionsWithSnippetText = true,
+                autoImports = true,
               },
               format = {
                 indentSize = 2,
                 tabSize = 2,
                 convertTabsToSpaces = true,
               },
-            },
-            completions = {
-              includeCompletionsForModuleExports = true,
-              includeCompletionsWithSnippetText = true,
             },
           },
         },
@@ -161,15 +141,6 @@ return {
                   variableTypes = true,
                   parameterTypes = true,
                 },
-              },
-              linting = {
-                enabled = true,
-                flake8Enabled = true,
-                mypyEnabled = true,
-                ruffEnabled = true,
-              },
-              formatting = {
-                provider = "black",
               },
             },
           },

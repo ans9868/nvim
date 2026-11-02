@@ -4,56 +4,6 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
-        tsserver = {
-          settings = {
-            typescript = {
-              inlayHints = {
-                semicolons = "remove",
-                includeInlayParameterNameHints = "literal",
-                includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-                includeInlayFunctionParameterTypeHints = true,
-                includeInlayVariableTypeHints = false,
-                includeInlayPropertyDeclarationTypeHints = true,
-                includeInlayFunctionLikeReturnTypeHints = true,
-                includeInlayEnumMemberValueHints = true,
-              },
-              suggest = {
-                includeCompletionsForModuleExports = true,
-                includeCompletionsWithSnippetText = true,
-              },
-              format = {
-                indentSize = 2,
-                tabSize = 2,
-                convertTabsToSpaces = true,
-              },
-            },
-            javascript = {
-              inlayHints = {
-                semicolons = "remove",
-                includeInlayParameterNameHints = "all",
-                includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-                includeInlayFunctionParameterTypeHints = true,
-                includeInlayVariableTypeHints = true,
-                includeInlayPropertyDeclarationTypeHints = true,
-                includeInlayFunctionLikeReturnTypeHints = true,
-                includeInlayEnumMemberValueHints = true,
-              },
-              suggest = {
-                includeCompletionsForModuleExports = true,
-                includeCompletionsWithSnippetText = true,
-              },
-              format = {
-                indentSize = 2,
-                tabSize = 2,
-                convertTabsToSpaces = true,
-              },
-            },
-            completions = {
-              includeCompletionsForModuleExports = true,
-              includeCompletionsWithSnippetText = true,
-            },
-          },
-        },
         eslint = {
           settings = {
             workingDirectory = { mode = "auto" },

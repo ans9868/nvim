@@ -18,15 +18,6 @@ return {
                   parameterTypes = true,
                 },
               },
-              linting = {
-                enabled = true,
-                flake8Enabled = true,
-                mypyEnabled = true,
-                ruffEnabled = true,
-              },
-              formatting = {
-                provider = "black",
-              },
             },
           },
         },
@@ -69,9 +60,6 @@ return {
       adapters = {
         ["neotest-python"] = {
           runner = "pytest",
-          python = function()
-            return vim.fn.getcwd() .. "/venv/bin/python"
-          end,
         },
       },
     },
