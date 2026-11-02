@@ -1,7 +1,7 @@
 return {
   -- tools
   {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
     opts = function(_, opts)
       vim.list_extend(opts.ensure_installed, {
         "shfmt",
@@ -38,8 +38,8 @@ return {
       servers = {
         cssls = {},
         tailwindcss = {
-          root_dir = function(...)
-            return require("lspconfig.util").root_pattern(".git")(...)
+          root_dir = function(fname)
+            return vim.fs.root(fname, ".git")
           end,
         },
         vtsls = {

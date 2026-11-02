@@ -1,7 +1,6 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter",
-    tag = "v0.9.1",
     opts = {
       ensure_installed = {
         --fullstack development
@@ -23,11 +22,6 @@ return {
         "cpp",
       },
       ignore_install = { "xml", "printf" },
-      query_linter = {
-        enable = true,
-        use_virtual_text = true,
-        lint_events = { "BufWrite", "CursorHold" },
-      },
     },
   },
 }
