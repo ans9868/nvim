@@ -127,7 +127,7 @@ return {
       { "<leader>dc", "<cmd>DapContinue<cr>", desc = "Continue Debug" },
       { "<leader>di", "<cmd>DapStepInto<cr>", desc = "Step Into" },
       { "<leader>do", "<cmd>DapStepOver<cr>", desc = "Step Over" },
-      { "<leader>dr", "<cmd>DapRestart<cr>", desc = "Restart Debug" },
+      { "<leader>dr", "<cmd>lua require('dap').restart()<cr>", desc = "Restart Debug" },
       { "<leader>dq", "<cmd>DapTerminate<cr>", desc = "Terminate Debug" },
     },
   },

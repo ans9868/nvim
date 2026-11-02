@@ -47,14 +47,6 @@ return {
     },
   },
 
-  -- React component file creation
-  {
-    "adelarsq/neofsharp.vim",
-    keys = {
-      { "<leader>cr", "<cmd>Neofsharp<cr>", desc = "Create React Component" },
-    },
-  },
-
   -- React debugging
   {
     "mfussenegger/nvim-dap",
@@ -94,14 +86,6 @@ return {
       }
       dap.configurations.typescript = dap.configurations.javascript
     end,
-    keys = {
-      { "<leader>db", "<cmd>DapToggleBreakpoint<cr>", desc = "Toggle Breakpoint" },
-      { "<leader>dc", "<cmd>DapContinue<cr>", desc = "Continue Debug" },
-      { "<leader>di", "<cmd>DapStepInto<cr>", desc = "Step Into" },
-      { "<leader>do", "<cmd>DapStepOver<cr>", desc = "Step Over" },
-      { "<leader>dr", "<cmd>DapRestart<cr>", desc = "Restart Debug" },
-      { "<leader>dq", "<cmd>DapTerminate<cr>", desc = "Terminate Debug" },
-    },
   },
 
   -- React testing support
@@ -121,13 +105,6 @@ return {
           end,
         },
       },
-    },
-    keys = {
-      { "<leader>tt", "<cmd>Neotest run<cr>", desc = "Run Tests" },
-      { "<leader>tf", "<cmd>Neotest run_file<cr>", desc = "Run File Tests" },
-      { "<leader>tn", "<cmd>Neotest run nearest<cr>", desc = "Run Nearest Test" },
-      { "<leader>to", "<cmd>Neotest output<cr>", desc = "Test Output" },
-      { "<leader>ts", "<cmd>Neotest summary<cr>", desc = "Test Summary" },
     },
   },
 
@@ -157,9 +134,9 @@ return {
   {
     "nvim-lua/plenary.nvim",
     keys = {
-      { "<leader>cd", "<cmd>!npm run dev<cr>", desc = "Start Dev Server" },
-      { "<leader>cb", "<cmd>!npm run build<cr>", desc = "Build Project" },
-      { "<leader>ci", "<cmd>!npm install<cr>", desc = "Install Dependencies" },
+      { "<leader>nd", "<cmd>!npm run dev<cr>", desc = "Start Dev Server" },
+      { "<leader>nb", "<cmd>!npm run build<cr>", desc = "Build Project" },
+      { "<leader>ni", "<cmd>!npm install<cr>", desc = "Install Dependencies" },
     },
   },
 } 

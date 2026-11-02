@@ -88,31 +88,6 @@ return {
     --	},
   },
   {
-    "kristijanhusak/vim-dadbod-ui",
-    dependencies = {
-      { "tpope/vim-dadbod", lazy = true },
-      { "kristijanhusak/vim-dadbod-completion", ft = { "sql", "mysql", "plsql" }, lazy = true },
-    },
-    cmd = {
-      "DBUI",
-      "DBUIToggle",
-      "DBUIAddConnection",
-      "DBUIFindBuffer",
-    },
-    init = function()
-      -- Your DBUI configuration
-      vim.g.db_ui_use_nerd_fonts = 1
-    end,
-    keys = {
-      {
-
-        "<leader>d",
-        "<cmd>NvimTreeClose<cr><cmd>tabnew<cr><bar><bar><cmd>DBUI<cr>",
-      },
-    },
-  },
-
-  {
     "nvim-neo-tree/neo-tree.nvim",
     opts = {
       filesystem = {
@@ -152,8 +127,9 @@ return {
     end,
     keys = {
       {
-        "<leader>Q",
-        "<cmd>tabnew<cr><bar><bar><cmd>DBUI<cr>", -- launches new tab launches DBUI
+        "<leader>uD",
+        "<cmd>tabnew<cr><cmd>DBUI<cr>", -- launches new tab launches DBUI
+        desc = "Open DBUI",
       },
     },
   },
